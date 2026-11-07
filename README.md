@@ -51,7 +51,9 @@ CUDACyclone.exe --range START:END --address <base58_address> [options]
 ### Example
 
 ```bat
-TEST ADDRESSES PROMPTS:
+==========================================================================================================================================================================================================
+
+TEST ADDRESSES:
 
 CUDACyclone.exe --range 400000000:7ffffffff --address 1PWCx5fovoEaoBowAvF5k91m2Xat9bMgwb --stride 0xD5 --grid 512,512
 
@@ -61,15 +63,27 @@ CUDACyclone.exe --range 4000000000:7fffffffff --address 122AJhKLEfkFBaGAd84pLp1k
 
 CUDACyclone.exe --range 8000000000:ffffffffff --address 1EeAxcprB2PpCnr34VfZdFrkUWuxyiNEFv --stride 161 --grid 512,512
 
-CUDACyclone.exe --range 2000000000000:3ffffffffffff --address 1MEzite4ReNuWaL5Ds17ePKt2dCxWEofwk --stride 0xD5 --grid 512,512
+==========================================================================================================================================================================================================
 
-REAL TARGET ADDRESSES PROMPTS:
+TEST PUBKEYS:
+
+CUDACyclone.exe --range 400000000:7ffffffff --pubkey 02f6a8148a62320e149cb15c544fe8a25ab483a0095d2280d03b8a00a7feada13d --stride 0xD5 --grid 4096,512
+
+CUDACyclone.exe --range 2000000000:3fffffffff --pubkey 03c060e1e3771cbeccb38e119c2414702f3f5181a89652538851d2e3886bdd70c6 --stride 161 --grid 4096,512
+
+CUDACyclone.exe --range 4000000000:7fffffffff --pubkey 022d77cd1467019a6bf28f7375d0949ce30e6b5815c2758b98a74c2700bc006543 --stride 0xD5 --grid 4096,512
+
+CUDACyclone.exe --range 8000000000:ffffffffff --pubkey 03a2efa402fd5268400c77c20e574ba86409ededee7c4020e4b9f0edbee53de0d4 --stride 161 --grid 4096,512
+
+==========================================================================================================================================================================================================
+
+REAL TARGET ADDRESSES:
 
 CUDACyclone.exe --range 400000000000000000:7fffffffffffffffff --address 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU --stride 0x466bef7e44641 --grid 512,512
 
 CUDACyclone.exe --range 800000000000000000:ffffffffffffffffff --address 1JTK7s9YVYywfm5XUH7RNhHJH1LshCaRFR --stride 0x466bef7e44641 --grid 512,512
 
-
+==========================================================================================================================================================================================================
 ```
 
 _(Replace with a real puzzle address and range of your choice.)_
