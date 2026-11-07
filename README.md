@@ -26,13 +26,13 @@ scans the range on an NVIDIA RTX 30-, 40- or 50-series GPU and reports a matchin
 
 ## How does it work?
 
-- **Precompute.** At startup the program builds a table of points `1×stride×G, 2×stride×G, … A×stride×G`, where A is the first `--grid` value (for example, `--grid 512,512` gives a 512-entry table). The stride is always forced odd regardless of the input (stride 10 becomes 11).
-- **Split the range.** With `--divide N` the range is cut into N equal sections, and the GPU threads are shared out between them. This spreads the search over the whole range instead of one region. The thread count is SM count × B × 256, where B is the second `--grid` value, so N can't be larger than that.
-- **Place the threads.** In the first launch, each thread gets an evenly spaced starting key inside its section.
-- **Check around each start.** Every thread checks its start key and then walks outward in both directions using the table, hashing each key and comparing its hash160 to your target. Example with a start of 1000, a table of 8 and stride 11:
+1. **Precompute.** At startup the program builds a table of points `1×stride×G, 2×stride×G, … A×stride×G`, where A is the first `--grid` value (for example, `--grid 512,512` gives a 512-entry table). The stride is always forced odd regardless of the input (stride 10 becomes 11).
+2. **Split the range.** With `--divide N` the range is cut into N equal sections, and the GPU threads are shared out between them. This spreads the search over the whole range instead of one region. The thread count is SM count × B × 256, where B is the second `--grid` value, so N can't be larger than that.
+3. **Place the threads.** In the first launch, each thread gets an evenly spaced starting key inside its section.
+4. **Check around each start.** Every thread checks its start key and then walks outward in both directions using the table, hashing each key and comparing its hash160 to your target. Example with a start of 1000, a table of 8 and stride 11:
    `912 · 923 · 934 · 945 · 956 · 967 · 978 · 989 · 1000 · 1011 · 1022 · 1033 · 1044 · 1055 · 1066 · 1077 · 1088`
    That is 2×8+1 = 17 keys per thread per launch.
-- **Jump and repeat.** Before each new launch, every thread jumps by a random step taken from `STEPS_TABLE`. If the jump goes past the end of its section, it wraps back around inside that section. Then step 4 runs again until the key is found.
+5. **Jump and repeat.** Before each new launch, every thread jumps by a random step taken from `STEPS_TABLE`. If the jump goes past the end of its section, it wraps back around inside that section. Then step 4 runs again until the key is found.
 
 ## Memory usage
 
