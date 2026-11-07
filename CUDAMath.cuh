@@ -896,7 +896,7 @@ __global__ void CalculateScalarPositionKernel(
 }
 
 // ============================================================================
-// For ScalarToPointKernel
+// For PrecomputeTableKernel and ScalarToPointKernel
 // ============================================================================
 
 __device__ __align__(16) uint64_t g_precomp_x[16ull * 65536 * 4];
