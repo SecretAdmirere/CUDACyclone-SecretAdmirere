@@ -98,7 +98,7 @@ If a key is found it is printed to the console and appended to `FOUND_ME_A_BITCO
 
 ## Performance
 
-_Add your benchmarks here (GPU model, keys/second)._
+_It is faster by 27% on NVIDIA RTX 30-, 40- or 50-series GPU then anything else that is publicly avaliable online_
 
   ## Credits
 
