@@ -8,13 +8,15 @@ scans the range on an NVIDIA RTX 30-, 40- or 50-series GPU and reports a matchin
 > deliberately small and known. It is not capable of recovering keys for ordinary wallets, and you
 > should only use it on addresses you have the right to test.
 
+## Donations to keep the project alive
+
+- I recently suffered a catastrophic PSU failure that killed almost every component of my PC, and I'm now in the process of gathering funds to build a new one. Any donation would be a great help, as it will let me continue development, improve the speeds even further, and refine the search logic.
+- My Bitcoin address is: `bc1q67nxvkge5ylq7fsvkhujmpvnut2a3964jqn4el`
+- I currently need about $2,000 to buy used parts on my local used-listings platform.
+
 ## Features
 
-- Runs on NVIDIA GPUs via CUDA
-- Target by Base58 address (compressed P2PKH) or compressed public key
-- Custom search range, range splitting (`--divide`), and stride/K-jumping (`--stride`)
-- Tunable GPU grid (`--grid`)
-- Writes the result to `FOUND_ME_A_BITCOIN.txt` when a key is found
+- Must add it later..
 
 ## Requirements
 
@@ -32,8 +34,16 @@ scans the range on an NVIDIA RTX 30-, 40- or 50-series GPU and reports a matchin
    That is 2×8+1 = 17 keys per thread per launch.
 - **Jump and repeat.** Before each new launch, every thread jumps by a random step taken from `STEPS_TABLE`. If the jump goes past the end of its section, it wraps back around inside that section. Then step 4 runs again until the key is found.
 
-Replace `sm_XX` with your GPU's compute capability (for example `sm_86` for RTX 30-series,
-`sm_89` for RTX 40-series).
+## Memory usage
+
+> **Warning:** `--grid` directly controls how much GPU memory (VRAM) the program uses. A higher second value (`B`) means more threads, and more threads mean more VRAM.
+
+- Every thread needs its own small buffers, so memory use grows with the thread count (SM count × B × 256).
+- On top of that, the program needs a fixed amount of VRAM for its precomputed tables and for the working space of the threads running at any moment (each thread uses a batch of 512 points for the batched inversion).
+- The program limits the thread count to fit your GPU at startup, but this limit is only an estimate and does not cover everything. Don't rely on it.
+- Always check the real usage: look at the **Memory Utilization** line printed at startup, and open **Task Manager → Performance → GPU → Dedicated GPU memory** while the program runs.
+- If memory is close to full, lower `B`. A full GPU can cause crashes, failed starts, or a slow or frozen desktop, because Windows needs some VRAM too.
+- Start with `--grid 512,512` and raise `B` gradually while watching memory.
 
 ## Usage
 
@@ -98,7 +108,32 @@ If a key is found it is printed to the console and appended to `FOUND_ME_A_BITCO
 
 ## Performance
 
-_It is faster by 27% on NVIDIA RTX 30-, 40- or 50-series GPU then anything else that is publicly avaliable online_
+_It is faster by 27% on NVIDIA RTX 30-, 40- or 50-series GPU when compared to the [GPU Benchmark List](https://btcpuzzle.info/benchmark)_
+
+| GPU | Speed (Mkeys/s) | My Speed (Mkeys/s) | Status |
+|---|---:|---:|---:|
+| RTX 5090 | 8,060 Mkeys/s | 10,236 Mkeys/s | Estimated |
+| RTX 4090 | 5,960 Mkeys/s | 7,569 Mkeys/s | Estimated |
+| RTX 5080 | 4,520 Mkeys/s | 5,740 Mkeys/s | Estimated |
+| RTX 4080 SUPER | 3,690 Mkeys/s | 4,686 Mkeys/s | Estimated |
+| RTX 4080 | 3,490 Mkeys/s | 4,432 Mkeys/s | Estimated |
+| RTX 4070 Ti SUPER | 3,240 Mkeys/s | 4,114 Mkeys/s | Estimated |
+| RTX 3090 Ti | 2,820 Mkeys/s | 3,581 Mkeys/s | Estimated |
+| RTX 4070 Ti | 2,680 Mkeys/s | 3,403 Mkeys/s | Estimated |
+| RTX 3090 | 2,570 Mkeys/s | 3,263 Mkeys/s | Estimated |
+| RTX 4070 SUPER | 2,530 Mkeys/s | 3,213 Mkeys/s | Estimated |
+| RTX 3080 Ti | 2,480 Mkeys/s | 3,149 Mkeys/s | Estimated |
+| RTX 3080 | 2,310 Mkeys/s | 2,933 Mkeys/s | Estimated |
+| RTX 4070 | 2,150 Mkeys/s | 2,730 Mkeys/s | Estimated |
+| RTX 3070 Ti | 1,760 Mkeys/s | 2,235 Mkeys/s | Confirmed 27% incrise |
+| RTX 3070 | 1,580 Mkeys/s | 2,006 Mkeys/s | Estimated |
+| RTX 4060 Ti | 1,540 Mkeys/s | 1,955 Mkeys/s | Estimated |
+| RTX 3060 Ti | 1,340 Mkeys/s | 1,701 Mkeys/s | Estimated |
+| RTX 4060 | 1,260 Mkeys/s | 1,600 Mkeys/s | Estimated |
+| RTX 3060 | 982 Mkeys/s | 1,247 Mkeys/s | Estimated |
+| RTX 3050 | 708 Mkeys/s | 899 Mkeys/s | Estimated |
+
+*Only the RTX 3070 Ti has been measured so far (a 27% increase). All other "My Speed" values are estimates that apply the same 27% increase to the figure in the Speed column. If you test a different GPU, send a PR or open an issue with your results.*
 
   ## Credits
 
