@@ -40,12 +40,12 @@ CUDACyclone.exe --range START:END --address <base58_address> [options]
 
 | Option | Description |
 |---|---|
-| `--range START:END` | Hexadecimal search range |
-| `--address <base58>` | Target Bitcoin address (compressed only) |
-| `--pubkey <hex>` | Target public key (compressed only, and used as a performance benchmark ONLY, don't recomend using it to search for public keys) |
-| `--grid A,B` | GPU grid size (points per batch, batches per SM) |
-| `--divide N` | Divide the range into N sections (default: 1) |
-| `--stride N` | Stride value for K-jumping (default: 3) |
+| `--range START:END` | Hexadecimal search range (Exsample: --range 400000000:7ffffffff) |
+| `--address <base58>` | Target Bitcoin compressed address (Exsample: --address 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU) |
+| `--pubkey <hex>` | Target compressed public key, used as a performance benchmark ONLY, don't recomend using it to search for target public keys (Exsample: --pubkey 03a2efa402fd5268400c77c20e574ba86409ededee7c4020e4b9f0edbee53de0d4) |
+| `--grid A,B` | GPU grid size, A:points per batch, B:batches per SM (Exsample: --grid 512,512) |
+| `--divide N` | Divide the range into N sections (Exsample: --divide 4) |
+| `--stride N` | Stride value for K-jumping, can be set as an decimal number or as an HEX. If set as HEX, it must start with 0xHEX (Exsample: --stride 161 or --stride 0xD5) |
 | `-h`, `--help` | Show help |
 
 ### Example
@@ -86,7 +86,7 @@ CUDACyclone.exe --range 800000000000000000:ffffffffffffffffff --address 1JTK7s9Y
 ==========================================================================================================================================================================================================
 ```
 
-_(Those are exsamples only, you have to do your own due diligence and make a prompt suitable for the task you want to complite!)_
+_(These are only examples. Do your own due diligence and write a prompt that suits your task!)_
 
 ## Output
 
