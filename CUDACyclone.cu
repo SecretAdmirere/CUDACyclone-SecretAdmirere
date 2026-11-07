@@ -1,10 +1,8 @@
-
 // CUDACyclone-SecretAdmirere
 // Copyright (C) 2026 SecretAdmirere
 //
-// Portions of this file are derived from CUDACyclone
+// Inspired by Dookoo2 CUDACyclone
 // (https://github.com/Dookoo2/CUDACyclone)
-// (c) 2025, Dookoo2.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
