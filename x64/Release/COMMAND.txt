@@ -1,0 +1,54 @@
+========================================================================================================================================================================================================================
+
+TEST ADDRESS PROMPTS:
+
+CUDACyclone.exe --range 400000000:7ffffffff --address 1PWCx5fovoEaoBowAvF5k91m2Xat9bMgwb --stride 161 --grid 512,1536
+
+CUDACyclone.exe --range 2000000000:3fffffffff --address 1HBtApAFA9B2YZw3G2YKSMCtb3dVnjuNe2 --stride 161 --grid 512,1536
+
+CUDACyclone.exe --range 4000000000:7fffffffff --address 122AJhKLEfkFBaGAd84pLp1kfE7xK3GdT8 --stride 161 --grid 512,1536
+
+CUDACyclone.exe --range 8000000000:ffffffffff --address 1EeAxcprB2PpCnr34VfZdFrkUWuxyiNEFv --stride 161 --grid 512,1536
+
+CUDACyclone.exe --range 2000000000000:3ffffffffffff --address 1MEzite4ReNuWaL5Ds17ePKt2dCxWEofwk --stride 161 --grid 512,1536
+
+CUDACyclone.exe --range 101d83270000000000:101d8327ffffffffff --address 19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG --stride 161 --grid 512,1536
+
+CUDACyclone.exe --range 33e7665705359f04f28b88c0000000000:33e7665705359f04f28b88cffffffffff --address 1Fo65aKq8s8iquMt6weF1rku1moWVEd5Ua --stride 161 --grid 512,1536
+
+CUDACyclone.exe --range 33e7665705359f04f28b88cf800000000:33e7665705359f04f28b88cf8ffffffff --address 1Fo65aKq8s8iquMt6weF1rku1moWVEd5Ua --stride 161 --grid 512,1536
+
+TEST PUBKEY PROMPTS:
+
+CUDACyclone.exe --range 400000000:7ffffffff --pubkey 02f6a8148a62320e149cb15c544fe8a25ab483a0095d2280d03b8a00a7feada13d --stride 161 --grid 4096,1024
+
+CUDACyclone.exe --range 2000000000:3fffffffff --pubkey 03c060e1e3771cbeccb38e119c2414702f3f5181a89652538851d2e3886bdd70c6 --stride 161 --grid 4096,1024
+
+CUDACyclone.exe --range 4000000000:7fffffffff --pubkey 022d77cd1467019a6bf28f7375d0949ce30e6b5815c2758b98a74c2700bc006543 --stride 161 --grid 4096,1024
+
+CUDACyclone.exe --range 8000000000:ffffffffff --pubkey 03a2efa402fd5268400c77c20e574ba86409ededee7c4020e4b9f0edbee53de0d4 --stride 161 --grid 4096,1024
+
+CUDACyclone.exe --range 2000000000000:2333333333333 --pubkey 03f46f41027bbf44fafd6b059091b900dad41e6845b2241dc3254c7cdd3c5a16c6 --stride 161 --grid 4096,1024
+
+CUDACyclone.exe --range 101d83270000000000:101d8327ffffffffff --pubkey 024babadccc6cfd5f0e5e7fd2a50aa7d677ce0aa16fdce26a0d0882eed03e7ba531 --stride 161 --grid 4096,1024
+
+CUDACyclone.exe --range 33e7665705359f04f28b88c0000000000:33e7665705359f04f28b88cffffffffff --pubkey 03633cbe3ec02b9401c5effa144c5b4d22f87940259634858fc7e59b1c09937852 --stride 161 --grid 4096,1024
+
+CUDACyclone.exe --range 33e7665705359f04f28b88cf800000000:33e7665705359f04f28b88cf8ffffffff --pubkey 03633cbe3ec02b9401c5effa144c5b4d22f87940259634858fc7e59b1c09937852 --stride 161 --grid 4096,1024
+
+========================================================================================================================================================================================================================
+
+REAL TARGET FINDING PROMPTS:
+
+CUDACyclone.exe --range 400000000000000000:7fffffffffffffffff --address 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU --stride 0x466bef7e44641 --grid 512,1536
+
+CUDACyclone.exe --range 4051EB851EB851EB85:7FEF9DB22D0E560418 --address 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU --stride 0x466bef7e44641 --grid 512,1536
+
+CUDACyclone.exe --range 4051EB85BEB851EB85:7fffffffffffffffff --address 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU --stride 0xD59F9ADE33 --grid 512,512 --divide 6291456
+
+CUDACyclone.exe --range 800000000000000000:ffffffffffffffffff --address 1JTK7s9YVYywfm5XUH7RNhHJH1LshCaRFR --stride 0x466bef7e44641 --grid 512,1536
+
+
+CUDACyclone.exe --range 4000000000000000000000000000000000:7fffffffffffffffffffffffffffffffff --pubkey 02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16 --stride 0xec5db4c06f1266e67e2d3a7a0 --grid 4096,1024
+
+========================================================================================================================================================================================================================
