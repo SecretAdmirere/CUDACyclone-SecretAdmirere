@@ -42,7 +42,7 @@ CUDACyclone.exe --range START:END --address <base58_address> [options]
 |---|---|
 | `--range START:END` | Hexadecimal search range |
 | `--address <base58>` | Target Bitcoin address (compressed only) |
-| `--pubkey <hex>` | Target compressed public key (alternative to `--address`) |
+| `--pubkey <hex>` | Target public key (compressed only, and used as a performance benchmark ONLY, don't recomend using it to search for public keys) |
 | `--grid A,B` | GPU grid size (points per batch, batches per SM) |
 | `--divide N` | Divide the range into N sections (default: 1) |
 | `--stride N` | Stride value for K-jumping (default: 3) |
