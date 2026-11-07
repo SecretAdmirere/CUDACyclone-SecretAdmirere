@@ -86,7 +86,7 @@ CUDACyclone.exe --range 800000000000000000:ffffffffffffffffff --address 1JTK7s9Y
 ==========================================================================================================================================================================================================
 ```
 
-_(Replace with a real puzzle address and range of your choice.)_
+_(Those are exsamples only, you have to do your own due diligence and make a prompt suitable for the task you want to complite!S)_
 
 ## Output
 
