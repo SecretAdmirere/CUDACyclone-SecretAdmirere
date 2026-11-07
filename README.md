@@ -1,8 +1,8 @@
-# CUDACyclone
+# CUDACyclone-SecretAdmirere
 
-GPU-accelerated search tool for Bitcoin puzzle ("Bitcoin Challenge") addresses, written in CUDA C++.
-Given a target P2PKH address (or compressed public key) and a hexadecimal private-key range, it
-scans the range on an NVIDIA GPU and reports a matching key.
+GPU-accelerated search tool for [Bitcoin puzzle](https://bitcointalk.org/index.php?topic=1306983.0) addresses, written in CUDA C++.
+Given a target compressed P2PKH address (or compressed public key) and a hexadecimal private-key range, it
+scans the range on an NVIDIA RTX 30-, 40- or 50-series GPU and reports a matching key.
 
 > **Scope:** This tool is intended for the public Bitcoin puzzle challenges, where the key range is
 > deliberately small and known. It is not capable of recovering keys for ordinary wallets, and you
@@ -18,16 +18,19 @@ scans the range on an NVIDIA GPU and reports a matching key.
 
 ## Requirements
 
-- NVIDIA GPU with a recent driver
-- [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads) (version: _fill in, e.g. 12.x_)
-- Windows + Visual Studio (MSVC) — the code currently includes `<windows.h>`
+- Requires an NVIDIA RTX 30-, 40- or 50-series GPU with a recent driver installed.
+- Latest [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads), i have tested every version from 11.8 up until 13.3 and have concluded that using the latest version is the best, the performance doesn't change from version to version but register allocation does. So just use the latest [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads).
+- Windows 10 or 11, Visual Studio Community 2022, C++ core desktop features, C++ CMake tools for Windows, Windows 10 or 11 SDK, MSVC v143 (I listed everything i used for building the project).
 
-## Build
+## How does it work?
 
-```bat
-:: Run from a "x64 Native Tools Command Prompt for VS"
-nvcc -O3 -arch=sm_XX CUDACyclone.cu -o CUDACyclone.exe
-```
+- **Precompute.** At startup the program builds a table of points `1×stride×G, 2×stride×G, … A×stride×G`, where A is the first `--grid` value (for example, `--grid 512,512` gives a 512-entry table). The stride is always forced odd regardless of the input (stride 10 becomes 11).
+- **Split the range.** With `--divide N` the range is cut into N equal sections, and the GPU threads are shared out between them. This spreads the search over the whole range instead of one region. The thread count is SM count × B × 256, where B is the second `--grid` value, so N can't be larger than that.
+- **Place the threads.** In the first launch, each thread gets an evenly spaced starting key inside its section.
+- **Check around each start.** Every thread checks its start key and then walks outward in both directions using the table, hashing each key and comparing its hash160 to your target. Example with a start of 1000, a table of 8 and stride 11:
+   `912 · 923 · 934 · 945 · 956 · 967 · 978 · 989 · 1000 · 1011 · 1022 · 1033 · 1044 · 1055 · 1066 · 1077 · 1088`
+   That is 2×8+1 = 17 keys per thread per launch.
+- **Jump and repeat.** Before each new launch, every thread jumps by a random step taken from `STEPS_TABLE`. If the jump goes past the end of its section, it wraps back around inside that section. Then step 4 runs again until the key is found.
 
 Replace `sm_XX` with your GPU's compute capability (for example `sm_86` for RTX 30-series,
 `sm_89` for RTX 40-series).
@@ -48,7 +51,7 @@ CUDACyclone.exe --range START:END --address <base58_address> [options]
 | `--stride N` | Stride value for K-jumping, given as a decimal number or as hex. Hex values must start with 0x (example: --stride 161 or --stride 0xD5) |
 | `-h`, `--help` | Show help |
 
-### Example
+### Test commands
 
 ```bat
 ==========================================================================================================================================================================================================
@@ -97,9 +100,11 @@ If a key is found it is printed to the console and appended to `FOUND_ME_A_BITCO
 
 _Add your benchmarks here (GPU model, keys/second)._
 
-## Credits
+  ## Credits
 
-_Special thanks to the: https://github.com/RetiredC/RCKangaroo, https://github.com/JeanLucPons/VanitySearch, https://github.com/Dookoo2/CUDACyclone_
+  - Inspired by [Dookoo2's CUDACyclone](https://github.com/Dookoo2/CUDACyclone)
+  - [Jean Luc PONS / VanitySearch](https://github.com/JeanLucPons/VanitySearch)
+  - [RetiredCoder / RCKangaroo](https://github.com/RetiredC/RCKangaroo)
 
 ## License
 
