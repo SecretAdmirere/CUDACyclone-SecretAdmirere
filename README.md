@@ -99,7 +99,7 @@ _Add your benchmarks here (GPU model, keys/second)._
 
 ## Credits
 
-_List any projects, papers or people whose code or ideas you used (this matters for GPL compliance)._
+_Special thanks to the: https://github.com/RetiredC/RCKangaroo, https://github.com/JeanLucPons/VanitySearch, https://github.com/Dookoo2/CUDACyclone_
 
 ## License
 
