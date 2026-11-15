@@ -1,0 +1,88 @@
+Rebuild started at 00:39...
+1>------ Rebuild All started: Project: CUDACyclone, Configuration: Release x64 ------
+1>Compiling CUDA source file CUDACyclone.cu...
+1>
+1>C:\Users\X\Desktop\CudaCyclone - Public Release\CUDACyclone-SecretAdmirere>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\bin\nvcc.exe" -gencode=arch=compute_86,code=\"sm_86,compute_86\" -gencode=arch=compute_89,code=\"sm_89,compute_89\" -gencode=arch=compute_120,code=\"sm_120,compute_120\" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\HostX64\x64" -x cu   -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\vcpkg\installed\x64-windows\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include"     --keep-dir CUDACyclone\x64\Release       --machine 64 --compile -cudart static -O3 -Xptxas="-O3,-v,-dlcm=ca,-warn-spills,-allow-expensive-optimizations=true" -Xcompiler "/Ox /GS- /fp:fast /D_CRT_SECURE_NO_WARNINGS"   -DWIN32 -DWIN64 -DNDEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Ox /FS   /MT " -Xcompiler "/FdCUDACyclone\x64\Release\vc143.pdb" -o "C:\Users\X\Desktop\CudaCyclone - Public Release\CUDACyclone-SecretAdmirere\CUDACyclone\x64\Release\CUDACyclone.cu.obj" "C:\Users\X\Desktop\CudaCyclone - Public Release\CUDACyclone-SecretAdmirere\CUDACyclone.cu"
+1>ptxas info    : 67108888 bytes gmem, 1540 bytes cmem[3], 40 bytes cmem[4]
+1>ptxas info    : Compiling entry function '_Z18PubkeySearchKernelPKyS0_S0_jPiP11FoundResultPy' for 'sm_86'
+1>ptxas info    : Function properties for _Z18PubkeySearchKernelPKyS0_S0_jPiP11FoundResultPy
+1>    16384 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 96 registers, used 0 barriers, 16384 bytes cumulative stack size, 408 bytes cmem[0]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z23AddressHashSearchKernelPKyS0_S0_jPiP11FoundResultPy' for 'sm_86'
+1>ptxas info    : Function properties for _Z23AddressHashSearchKernelPKyS0_S0_jPiP11FoundResultPy
+1>    16384 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 116 registers, used 0 barriers, 16384 bytes cumulative stack size, 408 bytes cmem[0]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z19ScalarToPointKernelPKyPyS1_' for 'sm_86'
+1>ptxas info    : Function properties for _Z19ScalarToPointKernelPKyPyS1_
+1>    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 126 registers, used 0 barriers, 32 bytes cumulative stack size, 376 bytes cmem[0]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z21PrecomputeTableKerneli' for 'sm_86'
+1>ptxas info    : Function properties for _Z21PrecomputeTableKerneli
+1>    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 127 registers, used 0 barriers, 356 bytes cmem[0]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z29CalculateScalarPositionKernelPyPKyS1_S1_S1_jyyyyyyy' for 'sm_86'
+1>ptxas info    : Function properties for _Z29CalculateScalarPositionKernelPyPKyS1_S1_S1_jyyyyyyy
+1>    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 48 registers, used 0 barriers, 32 bytes cumulative stack size, 456 bytes cmem[0], 8 bytes cmem[2]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : 67108888 bytes gmem, 1540 bytes cmem[3], 40 bytes cmem[4]
+1>ptxas info    : Compiling entry function '_Z18PubkeySearchKernelPKyS0_S0_jPiP11FoundResultPy' for 'sm_89'
+1>ptxas info    : Function properties for _Z18PubkeySearchKernelPKyS0_S0_jPiP11FoundResultPy
+1>    16384 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 96 registers, used 0 barriers, 16384 bytes cumulative stack size, 408 bytes cmem[0]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z23AddressHashSearchKernelPKyS0_S0_jPiP11FoundResultPy' for 'sm_89'
+1>ptxas info    : Function properties for _Z23AddressHashSearchKernelPKyS0_S0_jPiP11FoundResultPy
+1>    16384 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 116 registers, used 0 barriers, 16384 bytes cumulative stack size, 408 bytes cmem[0]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z19ScalarToPointKernelPKyPyS1_' for 'sm_89'
+1>ptxas info    : Function properties for _Z19ScalarToPointKernelPKyPyS1_
+1>    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 126 registers, used 0 barriers, 32 bytes cumulative stack size, 376 bytes cmem[0]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z21PrecomputeTableKerneli' for 'sm_89'
+1>ptxas info    : Function properties for _Z21PrecomputeTableKerneli
+1>    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 127 registers, used 0 barriers, 356 bytes cmem[0]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z29CalculateScalarPositionKernelPyPKyS1_S1_S1_jyyyyyyy' for 'sm_89'
+1>ptxas info    : Function properties for _Z29CalculateScalarPositionKernelPyPKyS1_S1_S1_jyyyyyyy
+1>    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 48 registers, used 0 barriers, 32 bytes cumulative stack size, 456 bytes cmem[0], 8 bytes cmem[2]
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : 67108888 bytes gmem
+1>ptxas info    : Compiling entry function '_Z18PubkeySearchKernelPKyS0_S0_jPiP11FoundResultPy' for 'sm_120'
+1>ptxas info    : Function properties for _Z18PubkeySearchKernelPKyS0_S0_jPiP11FoundResultPy
+1>    16384 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 104 registers, used 0 barriers, 16384 bytes cumulative stack size
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z23AddressHashSearchKernelPKyS0_S0_jPiP11FoundResultPy' for 'sm_120'
+1>ptxas info    : Function properties for _Z23AddressHashSearchKernelPKyS0_S0_jPiP11FoundResultPy
+1>    16384 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 120 registers, used 0 barriers, 16384 bytes cumulative stack size
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z19ScalarToPointKernelPKyPyS1_' for 'sm_120'
+1>ptxas info    : Function properties for _Z19ScalarToPointKernelPKyPyS1_
+1>    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 128 registers, used 0 barriers, 32 bytes cumulative stack size
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z21PrecomputeTableKerneli' for 'sm_120'
+1>ptxas info    : Function properties for _Z21PrecomputeTableKerneli
+1>    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 125 registers, used 0 barriers
+1>ptxas info    : Compile time = 0.000 ms
+1>ptxas info    : Compiling entry function '_Z29CalculateScalarPositionKernelPyPKyS1_S1_S1_jyyyyyyy' for 'sm_120'
+1>ptxas info    : Function properties for _Z29CalculateScalarPositionKernelPyPKyS1_S1_S1_jyyyyyyy
+1>    32 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+1>ptxas info    : Used 48 registers, used 0 barriers, 32 bytes cumulative stack size
+1>ptxas info    : Compile time = 0.000 ms
+1>CUDACyclone.cu
+1>tmpxft_0000439c_00000000-7_CUDACyclone.compute_120.cudafe1.cpp
+1>CUDACyclone.vcxproj -> C:\Users\X\Desktop\CudaCyclone - Public Release\CUDACyclone-SecretAdmirere\x64\Release\CUDACyclone.exe
+========== Rebuild All: 1 succeeded, 0 failed, 0 skipped ==========
+========== Rebuild completed at 00:39 and took 26.919 seconds ==========
