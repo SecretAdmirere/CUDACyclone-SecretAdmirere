@@ -116,7 +116,7 @@ If a key is found it is printed to the console and appended to `FOUND_ME_A_BITCO
 
 ## Performance
 
-Speeds in the '**Reference**' column come from the [btcpuzzle.info GPU benchmark list](https://btcpuzzle.info/benchmark). '**This project**' column shows the speed of CUDACyclone-SecretAdmirere, which is about 27% higher. Only the RTX 3070 Ti has been tested so far. All other values are estimates calculated by applying the same 27% increase to the reference figure.
+Speeds in the '**Reference**' column come from the [btcpuzzle.info GPU benchmark list](https://btcpuzzle.info/benchmark). '**This project**' column shows the speed of CUDACyclone-SecretAdmirere, which runs 27% and 37% faster on the RTX 3070 Ti and RTX 3080 Ti tested so far. All other values are conservative estimates calculated by applying the lower 27% increase to the reference figures. All measured results were recorded at each card's official NVIDIA reference TDP.
 
 Measured speeds are the **real kernel speed** (the time the GPU spends computing keys), not an **Speed With Included Overhead** figure that includes everything in between.
 
@@ -132,7 +132,7 @@ Measured speeds are the **real kernel speed** (the time the GPU spends computing
 | RTX 4070 Ti | 2,680 | 3,404 | Estimated |
 | RTX 3090 | 2,570 | 3,264 | Estimated |
 | RTX 4070 SUPER | 2,530 | 3,213 | Estimated |
-| RTX 3080 Ti | 2,480 | 3,150 | Estimated |
+| RTX 3080 Ti | 2,480 | 3,405 | Measured (+37%) |
 | RTX 3080 | 2,310 | 2,934 | Estimated |
 | RTX 4070 | 2,150 | 2,731 | Estimated |
 | RTX 3070 Ti | 1,760 | 2,235 | Measured (+27%) |
